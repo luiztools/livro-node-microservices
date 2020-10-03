@@ -8,4 +8,4 @@ Adquira este livro em https://www.luiztools.com.br/livro-node-ii
 Conheça meus cursos: https://www.luiztools.com.br/meus-cursos
 
 ## crud
-Projeto iniciando no capítulo 5 e usado em capítulos posteriores.
+Projeto realizado nos capítulos 5 e 6.
