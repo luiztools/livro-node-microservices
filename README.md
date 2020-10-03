@@ -9,3 +9,6 @@ Conheça meus cursos: https://www.luiztools.com.br/meus-cursos
 
 ## crud
 Projeto realizado nos capítulos 5 e 6.
+
+## webapi
+Projeto realizado no capítulo 7.
