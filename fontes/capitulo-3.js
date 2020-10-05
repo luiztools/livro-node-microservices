@@ -1,5 +1,5 @@
 //3.1
-var x = 1;
+let x = 1;
 
 //3.2
 x = 'teste';
@@ -55,7 +55,7 @@ console.log('a <= b : ' + (a <= b));
 console.log('a >= b : ' + (a >= b));
 
 //3.9
-var result = false;
+const result = false;
 i = 0;
 y = a*x + b;
 
@@ -103,11 +103,11 @@ str = '1.5';
 console.log(parseFloat(str));
 
 //3.20
-for (var i=0; i < 10; i++)
+for (let i=0; i < 10; i++)
    console.log('i=' + i);
 
 //3.21
-for (var i=0; i < 10; i++){
+for (let i=0; i < 10; i++){
 	console.log("i=" + i);
 	//outra instrução qualquer, quantas quiser
 }

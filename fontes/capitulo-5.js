@@ -159,7 +159,7 @@ app.listen(3000);
 	<meta charset="utf-8" />
    </head>
 <body>
-	<% var teste = 0; %>
+	<% const teste = 0; %>
 	<p>Apenas um texto</p>
 	<%= teste %>
 </body>
