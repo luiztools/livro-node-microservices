@@ -2,7 +2,7 @@
 npm init
 
 //7.2
-npm i express mongodb body-parser
+npm i express mongodb
 
 //7.3
 const {MongoClient} = require("mongodb");
@@ -20,12 +20,10 @@ module.exports = { }
 const db = require('./db');
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const port = 3000; //porta padrão
 
 //7.5
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 //7.6
 //definindo as rotas
@@ -52,7 +50,7 @@ router.get('/clientes', async function(req, res) {
   }
   catch(ex){
     console.log(ex);
-    res.status(400).json({erro: `${ex}`});
+    res.status(500).json({erro: `${ex}`});
   }
 })
 
@@ -75,7 +73,7 @@ router.get('/clientes/:id?', async function(req, res) {
   }
   catch(ex){
     console.log(ex);
-    res.status(400).json({erro: `${ex}`});
+    res.status(500).json({erro: `${ex}`});
   }
 })
 
@@ -96,7 +94,7 @@ router.post('/clientes', async function(req, res, next){
   }
   catch(ex){
     console.log(ex);
-    res.status(400).json({erro: `${ex}`});
+    res.status(500).json({erro: `${ex}`});
   }
 })
 
@@ -121,7 +119,7 @@ router.put('/clientes/:id', async function(req, res){
   }
   catch(ex){
     console.log(ex);
-    res.status(400).json({erro: `${ex}`});
+    res.status(500).json({erro: `${ex}`});
   }
 })
 
@@ -145,7 +143,7 @@ router.patch('/clientes/:id', async function(req, res){
   }
   catch(ex){
     console.log(ex);
-    res.status(400).json({erro: `${ex}`});
+    res.status(500).json({erro: `${ex}`});
   }
 })
 
@@ -170,7 +168,7 @@ router.delete('/clientes/:id', async function(req, res){
   }
   catch(ex){
     console.log(ex);
-    res.status(400).json({erro: `${ex}`});
+    res.status(500).json({erro: `${ex}`});
   }
 })
 

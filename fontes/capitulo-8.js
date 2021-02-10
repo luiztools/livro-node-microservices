@@ -28,22 +28,40 @@ function aplicarDescontoTest(){
  }
 
  //8.5
- node index.test
+ npm init
 
  //8.6
- npm install tape
+ jest
 
-//8.7
-const test = require('tape');
-const index = require('./index');
+ //8.7
+ {
+    "name": "tdd-jest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest"
+    },
+    "author": "LuizTools",
+    "license": "ISC"
+  }
 
-//8.8
+  //8.8
+  npm test
+
+  //8.9
+  npm install --save-dev jest
+
+  //8.10
+  jets --init
+
+//8.11
 test('Aplicar desconto', (t) => {
     t.assert(index.aplicarDesconto(10,5) === 5, "Descontou corretamente");
     t.end();
 })
 
-//8.9
+//8.12
 function aplicarDesconto(valor, desconto){
     if(desconto > valor) return 0;
     return valor - desconto;
@@ -51,68 +69,61 @@ function aplicarDesconto(valor, desconto){
  
  module.exports = {aplicarDesconto}
 
- //8.10
- "test": "node index.test | tap-spec"
-
- //8.11
- test('Aplicar desconto grande', (t) => {
-    t.assert(index.aplicarDesconto(5,10) === 0, "Descontou corretamente");
-    t.end();
+ //8.13
+ test('Aplicar desconto grande', () => {
+    const result = index.aplicarDesconto(5,10);
+    expect(result).toEqual(0);
 })
 
-//8.12
-npm install supertest express body-parser
+//8.14
+collectCoverage: true,
 
-//8.13
+//8.15
 //app.js
 const index = require('./index');
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
-const port = 3000; //porta padrão
+const port = 3000;
 
-//configurando o body parser para interpretar requests mais tarde
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-//definindo as rotas
-const router = express.Router();
-router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
+app.use(express.json());
+app.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
 // GET /aplicarDesconto
-router.get('/aplicarDesconto/:valor/:desconto', (req, res) => {
+app.get('/aplicarDesconto/:valor/:desconto', (req, res) => {
     const valor = parseInt(req.params.valor);
     const desconto = parseInt(req.params.desconto);
-    res.json({valorDescontado: index.aplicarDesconto(valor,desconto)});
+    res.json({ valorDescontado: index.aplicarDesconto(valor, desconto) });
 })
 
-app.use('/', router);
-
-if (require.main === module){
+if (require.main === module) {
     //inicia o servidor
-    app.listen(port);
-    console.log('API funcionando!');
+    app.listen(port)
+    console.log('API funcionando!')
 }
 
-module.exports = app;
+module.exports = app
 
-//8.14
-const test = require('tape');
+//8.16
+npm i express
+
+//8.17
+"scripts": {
+  "test": "jest",
+  "start": "node app"
+},
+
+//8.18
+npm install --save-dev supertest
+
+//8.19
 const supertest = require('supertest');
 const app = require('./app');
 
-//8.15
-test('GET /aplicarDesconto/10/5', (t) => {
-    supertest(app)
-      .get('/aplicarDesconto/10/5')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .end((err, res) =>{
-        t.error(err, 'Sem erros');
-        t.assert(res.body.valorDescontado === 5, "Desconto correto");
-        t.end() ; 
-      })
-})
+//8.20
+test('GET /aplicarDesconto/10/5', async () => {
+  const response = await supertest(app)
+      .get('/aplicarDesconto/10/5');
 
-//8.16
-"test": "tape ./tests/* | tap-spec"
+  expect(response.statusCode).toEqual(200);
+  expect(response.body.valorDescontado).toEqual(5);
+})

@@ -14,7 +14,10 @@ Projeto realizado nos capítulos 5 e 6.
 Projeto realizado no capítulo 7.
 
 ## exemplotdd
-Projeto realizado no capítulo 8.
+Projeto realizado no capítulo 8 (Edição 1 do livro).
+
+## tdd-jest
+Projeto realizado no capítulo 8 (Edição 2 do livro).
 
 ## cinema-microservices
 Projeto realizado a partir do capítulo 10.

@@ -17,10 +17,10 @@ show collections
 db.customers.find()
 
 //6.7
-db.customers.insert({ nome: "Luiz", idade: 29 })
+db.customers.insert({ nome: "Luiz", idade: 32 })
 
 //6.8
-custArray = [{ nome : "Monica", idade : 31 }, { nome : "Teste", "uf" : "RS" }]
+custArray = [{ nome : "Monica", idade : 32 }, { nome : "Teste", "uf" : "RS" }]
 db.customers.insert(custArray)
 
 //6.9

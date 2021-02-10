@@ -2,11 +2,9 @@
 const db = require('./db');
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const port = 3000; //porta padrão
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 //definindo as rotas
 //definindo as rotas
@@ -23,7 +21,7 @@ router.get('/clientes/:id?', async function(req, res) {
     }
     catch(ex){
       console.log(ex);
-      res.status(400).json({erro: `${ex}`});
+      res.status(500).json({erro: `${ex}`});
     }
 })
 
@@ -36,7 +34,7 @@ router.post('/clientes', async function(req, res, next){
     }
     catch(ex){
       console.log(ex);
-      res.status(400).json({erro: `${ex}`});
+      res.status(500).json({erro: `${ex}`});
     }
 })
 
@@ -49,7 +47,7 @@ router.put('/clientes/:id', async function(req, res){
     }
     catch(ex){
       console.log(ex);
-      res.status(400).json({erro: `${ex}`});
+      res.status(500).json({erro: `${ex}`});
     }
 })
 
@@ -61,7 +59,7 @@ router.patch('/clientes/:id', async function(req, res){
     }
     catch(ex){
       console.log(ex);
-      res.status(400).json({erro: `${ex}`});
+      res.status(500).json({erro: `${ex}`});
     }
 }) 
 
@@ -73,7 +71,7 @@ router.delete('/clientes/:id', async function(req, res){
     }
     catch(ex){
       console.log(ex);
-      res.status(400).json({erro: `${ex}`});
+      res.status(500).json({erro: `${ex}`});
     }
 })
 
