@@ -24,3 +24,6 @@ Projeto realizado nos capítulos 10 e 11.
 
 ## api-gateway
 Projeto realizado no capítulo 12.
+
+## api-gateway-jwt
+Projeto realizado no capítulo 13.
