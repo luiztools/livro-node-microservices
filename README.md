@@ -20,4 +20,7 @@ Projeto realizado no capítulo 8 (Edição 1 do livro).
 Projeto realizado no capítulo 8 (Edição 2 do livro).
 
 ## cinema-microservices
-Projeto realizado a partir do capítulo 10.
+Projeto realizado nos capítulos 10 e 11.
+
+## api-gateway
+Projeto realizado no capítulo 12.
