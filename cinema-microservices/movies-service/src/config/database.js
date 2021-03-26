@@ -6,7 +6,7 @@ async function connect() {
     if (client && client.isConnected()) return client.db(process.env.DATABASE_NAME);
 
     if (!client)
-        client = MongoClient(process.env.MONGO_CONNECTION, { useUnifiedTopology: true });
+        client = new MongoClient(process.env.MONGO_CONNECTION, { useUnifiedTopology: true });
 
     if (!client.isConnected())
         await client.connect();
