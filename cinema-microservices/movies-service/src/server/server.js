@@ -7,13 +7,13 @@ let server = null;
 async function start(api, repository) {
     const app = express();
     app.use(morgan('dev'));
+    
+    api(app, repository);
 
     app.use((err, req, res, next) => {
         console.error(err);
         res.sendStatus(500);
     })
-
-    api(app, repository);
 
     server = app.listen(process.env.PORT);
     return server;
