@@ -174,13 +174,13 @@ const { ObjectId } = require("mongodb");
 
 async function getAllCities() {
     const db = await database.connect();
-    return db.collection("cinemaCatalog").find({}, { cidade: 1, uf: 1, pais: 1 }).toArray();
+    return db.collection("cinemaCatalog").find({}).projection({ cidade: 1, uf: 1, pais: 1 }).toArray();
 }
 
 async function getCinemasByCityId(cityId) {
-    const objCityId = ObjectId(cityId);
+    const objCityId = new ObjectId(cityId);
     const db = await database.connect();
-    const cities = await db.collection("cinemaCatalog").find({ _id: objCityId }, { cinemas: 1 }).toArray();
+    const cities = await db.collection("cinemaCatalog").find({ _id: objCityId }).projection({ cinemas: 1 }).toArray();
     return cities[0].cinemas;
 }
 
@@ -220,7 +220,7 @@ test('Repository Disconnect', async () => {
 
 //11.10
 async function getMoviesByCinemaId(cinemaId) {
-    const objCinemaId = ObjectId(cinemaId);
+    const objCinemaId = new ObjectId(cinemaId);
     const db = await database.connect();
     return db.collection("cinemaCatalog").aggregate([
         { $match: { "cinemas._id": objCinemaId } },
@@ -235,7 +235,7 @@ module.exports = { getAllCities, getCinemasByCityId, disconnect, getMoviesByCine
 
 //11.11
 async function getMoviesByCityId(cityId) {
-    const objCityId = ObjectId(cityId);
+    const objCityId = new ObjectId(cityId);
     const db = await database.connect();
     const sessions = await db.collection("cinemaCatalog").aggregate([
         { $match: { "_id": objCityId } },
@@ -248,8 +248,8 @@ async function getMoviesByCityId(cityId) {
 }
 
 async function getMovieSessionsByCityId(movieId, cityId) {
-    const objMovieId = ObjectId(movieId);
-    const objCityId = ObjectId(cityId);
+    const objMovieId = new ObjectId(movieId);
+    const objCityId = new ObjectId(cityId);
     const db = await database.connect();
     const sessions = await db.collection("cinemaCatalog").aggregate([
         { $match: { "_id": objCityId } },
@@ -263,8 +263,8 @@ async function getMovieSessionsByCityId(movieId, cityId) {
 }
 
 async function getMovieSessionsByCinemaId(movieId, cinemaId) {
-    const objCinemaId = ObjectId(cinemaId);
-    const objMovieId = ObjectId(movieId);
+    const objCinemaId = new ObjectId(cinemaId);
+    const objMovieId = new ObjectId(movieId);
     const db = await database.connect();
     const sessions = await db.collection("cinemaCatalog").aggregate([
         { $match: { "cinemas._id": objCinemaId } },
