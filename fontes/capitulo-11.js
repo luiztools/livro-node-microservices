@@ -244,7 +244,7 @@ async function getMoviesByCityId(cityId) {
         { $unwind: "$cinemas.salas.sessoes" },
         { $group: { _id: { filme: "$cinemas.salas.sessoes.filme", idFilme: "$cinemas.salas.sessoes.idFilme" } } }
     ]).toArray();
-    return sessions.map(item => { return { idFilme: item._id.idFilme, filme: item._id.filme } });
+    return sessions.map(item => item._id);
 }
 
 async function getMovieSessionsByCityId(movieId, cityId) {
@@ -259,7 +259,7 @@ async function getMovieSessionsByCityId(movieId, cityId) {
         { $match: { "cinemas.salas.sessoes.idFilme": objMovieId } },
         { $group: { _id: { filme: "$cinemas.salas.sessoes.filme", idFilme: "$cinemas.salas.sessoes.idFilme", idCinema: "$cinemas._id", sala: "$cinemas.salas.nome", sessao: "$cinemas.salas.sessoes" } } }
     ]).toArray();
-    return sessions.map(item => { return { idFilme: item._id.idFilme, filme: item._id.filme, idCinema: item._id.idCinema, sala: item._id.sala, sessao: item._id.sessao } });
+    return sessions.map(item => item._id);
 }
 
 async function getMovieSessionsByCinemaId(movieId, cinemaId) {
@@ -274,7 +274,7 @@ async function getMovieSessionsByCinemaId(movieId, cinemaId) {
         { $match: { "cinemas.salas.sessoes.idFilme": objMovieId } },
         { $group: { _id: { filme: "$cinemas.salas.sessoes.filme", idFilme: "$cinemas.salas.sessoes.idFilme", sala: "$cinemas.salas.nome", sessao: "$cinemas.salas.sessoes" } } }
     ]).toArray();
-    return sessions.map(item => { return { idFilme: item._id.idFilme, filme: item._id.filme, sala: item._id.sala, sessao: item._id.sessao } });
+    return sessions.map(item => item._id);
 }
 
 module.exports = { getAllCities, getCinemasByCityId, disconnect, getMoviesByCinemaId, getMoviesByCityId, getMovieSessionsByCityId, getMovieSessionsByCinemaId }
