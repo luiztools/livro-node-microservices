@@ -10,8 +10,8 @@ async function getAllCities() {
 async function getCinemasByCityId(cityId) {
     const objCityId = new ObjectId(cityId);
     const db = await database.connect();
-    const cities = await db.collection("cinemaCatalog").find({ _id: objCityId }).projection({ cinemas: 1 }).toArray();
-    return cities[0].cinemas;
+    return db.collection('cinemaCatalog')
+        .findOne({ _id: objCityId }, { projection: { cinemas: 1 } });
 }
 
 async function disconnect() {
