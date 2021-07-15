@@ -1,21 +1,16 @@
-//database.js
-const MongoClient = require("mongodb").MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 let client = null;
 
 async function connect() {
-    if (client && client.isConnected()) return client.db(process.env.DATABASE_NAME);
-
     if (!client)
-        client = MongoClient(process.env.MONGO_CONNECTION, { useUnifiedTopology: true });
+        client = new MongoClient(process.env.MONGO_CONNECTION);
 
-    if (!client.isConnected())
-        await client.connect();
-
-    return connect();
+    await client.connect();
+    return client.db(process.env.DATABASE_NAME);
 }
 
 async function disconnect() {
-    if (!client || !client.isConnected()) return true;
+    if (!client) return true;
     await client.close();
     client = null;
     return true;
