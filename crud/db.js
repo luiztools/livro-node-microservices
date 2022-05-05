@@ -26,7 +26,7 @@ async function findOne(id){
 async function update(id, customer){
     const filter = {_id: new ObjectId(id)};
     const db = await connect();
-    return db.collection("customers").update(filter, customer);
+    return db.collection("customers").updateOne(filter, {$set: customer });
 }
 
 async function deleteOne(id){

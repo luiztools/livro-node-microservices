@@ -13,6 +13,6 @@
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
     "morgan": "^1.10.0",
-    "promise-redis": "^0.0.5"
+    "redis": "^4.0.4"
   }
 }

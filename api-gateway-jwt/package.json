@@ -16,6 +16,6 @@
     "express-http-proxy": "^1.6.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "promise-redis": "^0.0.5"
+    "redis": "^4.0.4"
   }
 }

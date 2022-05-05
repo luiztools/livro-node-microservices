@@ -1,14 +1,16 @@
 //redisClient.js
-const redis = require('promise-redis')();
+const redis = require('redis');
 let client = null;
 
 function getConnection() {
     if (client) return client;
     client = redis.createClient();
 
-    client.on("error", (error) => {
-        console.error(error);
-    });
+    this.client.on("error", (error) => {
+        logger('system', error);
+    })
+
+    this.client.connect();
 
     return client;
 }
