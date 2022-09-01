@@ -22,13 +22,13 @@ jest --init
 ./mongod --dbpath/pasta-do-seu-microservice/data --port 27018
 
 //11.4
-./mongo --port 27018
+./mongosh --port 27018
 
 //11.5
 use cinema-catalog-service
 
 //11.6
-db.cinemaCatalog.insert([{
+db.cinemaCatalog.insertMany([{
     cidade: "Gravataí",
     uf: "RS",
     cinemas: []

@@ -105,7 +105,7 @@ curl -X POST -d "{'nome':'Curl', 'idade': 11, 'uf': 'RJ'}" http://localhost:3000
 async function updateCustomer(id, customer){
   const filter = {_id: new ObjectId(id)};
   const db = await connect();
-  return db.collection("customers").update(filter, customer);
+  return db.collection("customers").replaceOne(filter, customer);
 }
 
 module.exports = {findCustomers, findCustomer, insertCustomer, updateCustomer}
