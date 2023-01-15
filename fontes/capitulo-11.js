@@ -163,7 +163,7 @@ db.cinemaCatalog.insertMany([{
 
 //11.7
 #.env, don't commit to repo
-MONGO_CONNECTION=mongodb://localhost:27018
+MONGO_CONNECTION=mongodb://127.0.0.1:27018
 DATABASE_NAME=cinema-catalog-service
 PORT=3001
 

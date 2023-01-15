@@ -26,7 +26,7 @@ module.exports = { connect, disconnect }
 
 //10.3
 #.env, don't commit to repo 
-MONGO_CONNECTION=mongodb://localhost:27017 
+MONGO_CONNECTION=mongodb://127.0.0.1:27017 
 DATABASE_NAME=movies-service 
 PORT=3000
 
