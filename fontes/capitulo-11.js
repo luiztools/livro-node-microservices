@@ -178,7 +178,7 @@ async function getAllCities() {
 }
 
 async function getCinemasByCityId(cityId) {
-    const objCityId = new ObjectId(cityId);
+    const objCityId = ObjectId.createFromHexString(cityId);
     const db = await database.connect();
     const city = await db.collection("cinemaCatalog").findOne({ _id: objCityId }, {projection: { cinemas: 1 }});
     return city.cinemas;
@@ -220,7 +220,7 @@ test('Repository Disconnect', async () => {
 
 //11.10
 async function getMoviesByCinemaId(cinemaId) {
-    const objCinemaId = new ObjectId(cinemaId);
+    const objCinemaId = ObjectId.createFromHexString(cinemaId);
     const db = await database.connect();
     return db.collection("cinemaCatalog").aggregate([
         { $match: { "cinemas._id": objCinemaId } },
@@ -235,7 +235,7 @@ module.exports = { getAllCities, getCinemasByCityId, disconnect, getMoviesByCine
 
 //11.11
 async function getMoviesByCityId(cityId) {
-    const objCityId = new ObjectId(cityId);
+    const objCityId = ObjectId.createFromHexString(cityId);
     const db = await database.connect();
     const sessions = await db.collection("cinemaCatalog").aggregate([
         { $match: { "_id": objCityId } },
@@ -248,8 +248,8 @@ async function getMoviesByCityId(cityId) {
 }
 
 async function getMovieSessionsByCityId(movieId, cityId) {
-    const objMovieId = new ObjectId(movieId);
-    const objCityId = new ObjectId(cityId);
+    const objMovieId = ObjectId.createFromHexString(movieId);
+    const objCityId = ObjectId.createFromHexString(cityId);
     const db = await database.connect();
     const sessions = await db.collection("cinemaCatalog").aggregate([
         { $match: { "_id": objCityId } },
@@ -263,8 +263,8 @@ async function getMovieSessionsByCityId(movieId, cityId) {
 }
 
 async function getMovieSessionsByCinemaId(movieId, cinemaId) {
-    const objCinemaId = new ObjectId(cinemaId);
-    const objMovieId = new ObjectId(movieId);
+    const objCinemaId = ObjectId.createFromHexString(cinemaId);
+    const objMovieId = ObjectId.createFromHexString(movieId);
     const db = await database.connect();
     const sessions = await db.collection("cinemaCatalog").aggregate([
         { $match: { "cinemas._id": objCinemaId } },

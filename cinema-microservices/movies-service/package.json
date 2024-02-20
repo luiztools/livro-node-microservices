@@ -3,9 +3,11 @@
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "mongodb": "^4.13.0",
+    "mongodb": "^6.3.0",
     "morgan": "^1.10.0"
   },
+  "author": "LuizTools",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^26.6.3",
     "supertest": "^6.1.3"

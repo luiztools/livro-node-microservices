@@ -7,8 +7,8 @@
     "start": "npx nodemon index"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "LuizTools",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv-safe": "^8.2.0",

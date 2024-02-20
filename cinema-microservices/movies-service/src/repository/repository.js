@@ -9,7 +9,7 @@ async function getAllMovies() {
 
 async function getMovieById(id) {
     const db = await database.connect();
-    return db.collection("movies").findOne({ _id: new ObjectId(id) });
+    return db.collection("movies").findOne({ _id: ObjectId.createFromHexString(id) });
 }
 
 async function getMoviePremieres() {

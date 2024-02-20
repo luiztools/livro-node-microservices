@@ -2,7 +2,7 @@
 const httpProxy = require('express-http-proxy');
 const express = require('express');
 const app = express();
-var logger = require('morgan');
+const logger = require('morgan');
 
 app.use(logger('dev'));
 

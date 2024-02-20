@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "tape ./tests/* | tap-spec"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "LuizTools",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "supertest": "^5.0.0",

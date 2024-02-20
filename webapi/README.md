@@ -1,6 +1,13 @@
 # webapi
 Projeto realizado no capítulo 7.
 
+## Como Executar
+
+1. git clone
+2. cd webapi
+3. npm install
+4. npm start
+
 ## Mais
 
 Me siga nas redes sociais: https://about.me/luiztools

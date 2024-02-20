@@ -8,8 +8,8 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "LuizTools",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^26.6.3",
     "supertest": "^6.1.3"

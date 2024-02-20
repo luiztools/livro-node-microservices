@@ -1,6 +1,12 @@
 # api-gateway
 Projeto realizado no capítulo 12.
 
+## Como Executar
+
+1. git clone
+2. npm install
+3. npm start
+
 ## Mais
 
 Me siga nas redes sociais: https://about.me/luiztools

@@ -4,13 +4,13 @@
   "description": "A web api in Node.js with MongoDB",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app"
   },
   "author": "LuizTools",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^4.13.0"
+    "mongodb": "^6.3.0"
   }
 }

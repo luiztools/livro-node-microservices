@@ -57,7 +57,7 @@ router.get('/clientes', async function(req, res) {
 //7.10
 async function findCustomer(id){ 
   const db = await connect(); 
-  const objId = new ObjectId(id);
+  const objId = ObjectId.createFromHexString(id);
   return db.collection("customers").findOne(objId);
 }
 
@@ -103,7 +103,7 @@ curl -X POST -d "{'nome':'Curl', 'idade': 11, 'uf': 'RJ'}" http://localhost:3000
 
 //7.15
 async function updateCustomer(id, customer){
-  const filter = {_id: new ObjectId(id)};
+  const filter = {_id: ObjectId.createFromHexString(id)};
   const db = await connect();
   return db.collection("customers").replaceOne(filter, customer);
 }
@@ -128,7 +128,7 @@ curl -X PUT -d "{'nome':'Postman', 'idade': 20, 'uf': 'SP'}" http://localhost:30
 
 //7.18
 async function patchCustomer(id, updates){
-  const filter = {_id: new ObjectId(id)};
+  const filter = {_id: ObjectId.createFromHexString(id)};
   const db = await connect();
   return db.collection("customers").updateOne(filter, {$set: updates});
 }
@@ -153,7 +153,7 @@ curl -X PATCH -d "{'idade':53}" http://localhost:3000/clientes/sfsdfdsfsdfdsf9
 //7.21
 async function deleteCustomer(id){
   const db = await connect(); 
-  const filter = {_id: new ObjectId(id)};
+  const filter = {_id: ObjectId.createFromHexString(id)};
   return db.collection("customers").deleteOne(filter);
 }
 
