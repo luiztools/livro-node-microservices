@@ -10,8 +10,8 @@
   "author": "LuizTools",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
-    "supertest": "^5.0.0",
-    "tape": "^5.0.1"
+    "express": "^5.1.0",
+    "supertest": "^7.1.0",
+    "tape": "^5.9.0"
   }
 }

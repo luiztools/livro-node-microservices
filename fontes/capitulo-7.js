@@ -44,7 +44,7 @@ async function findCustomers(){
 module.exports = {findCustomers}
 
 //7.9
-router.get('/clientes', async function(req, res) {
+router.get('/clientes', async (req, res) => {
   try{
       res.json(await db.findCustomers());
   }
@@ -64,7 +64,7 @@ async function findCustomer(id){
 module.exports = {findCustomers, findCustomer}
 
 //7.11
-router.get('/clientes/:id?', async function(req, res) {
+router.get('/clientes{/:id}', async (req, res) => {
   try{
     if(req.params.id)
       res.json(await db.findCustomers(req.params.id));
@@ -86,7 +86,7 @@ async function insertCustomer(customer){
 module.exports = {findCustomers, findCustomer, insertCustomer}
 
 //7.13
-router.post('/clientes', async function(req, res, next){
+router.post('/clientes', async (req, res, next) => {
   try{
     const customer = req.body;
     await db.insertCustomer(customer);
@@ -111,7 +111,7 @@ async function updateCustomer(id, customer){
 module.exports = {findCustomers, findCustomer, insertCustomer, updateCustomer}
 
 //7.16
-router.put('/clientes/:id', async function(req, res){
+router.put('/clientes/:id', async (req, res) => {
   try{
     const customer = req.body;
     await db.updateCustomer(req.params.id, customer);
@@ -136,7 +136,7 @@ async function patchCustomer(id, updates){
 module.exports = {findCustomers, findCustomer, insertCustomer, updateCustomer, patchCustomer}
 
 //7.19
-router.patch('/clientes/:id', async function(req, res){
+router.patch('/clientes/:id', async (req, res) => {
   try{
     await db.patchCustomer(req.params.id, req.body);
     res.json({message: "cliente atualizado com sucesso"});
@@ -161,7 +161,7 @@ module.exports = { findCustomers, insertCustomer, findCustomer, updateCustomer, 
 
 //7.22
 // DELETE /clientes/{id}
-router.delete('/clientes/:id', async function(req, res){
+router.delete('/clientes/:id', async (req, res) => {
   try{
     await db.deleteCustomer(req.params.id)
     res.json({message: "cliente excluído com sucesso"});

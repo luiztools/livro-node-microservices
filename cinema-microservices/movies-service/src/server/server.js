@@ -1,5 +1,4 @@
 //server.js
-require("express-async-errors");
 const express = require('express');
 const morgan = require('morgan');
 let server = null;

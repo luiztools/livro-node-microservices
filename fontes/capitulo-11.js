@@ -14,7 +14,7 @@
 }
 
 //11.2
-npm i express morgan mongodb dotenv-safe express-async-errors
+npm i express morgan mongodb dotenv-safe
 npm i -D supertest jest
 jest --init
 

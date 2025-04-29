@@ -1,5 +1,5 @@
 //10.1
-npm i express mongodb dotenv-safe morgan express-async-errors
+npm i express mongodb dotenv-safe morgan
 npm i -D jest supertest
 
 //10.2
@@ -152,7 +152,6 @@ db.movies.insert([{
 
 //10.10
 //server.js
-require("express-async-errors");
 const express = require('express');
 const morgan = require('morgan');
 let server = null;
@@ -228,7 +227,7 @@ const movies = require('./movies');
 const server = require("../server/server");
 const repository = require("../repository/repository");
 
-var testId = null;
+let testId = null;
 let app = null;
 
 beforeAll(async () => {

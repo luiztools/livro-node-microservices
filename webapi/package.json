@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongodb": "^6.3.0"
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0"
   }
 }

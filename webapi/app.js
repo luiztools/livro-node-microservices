@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
 /* GET clientes */
-router.get('/clientes/:id?', async function(req, res) {
+router.get('/clientes{/:id}', async function(req, res) {
     try{
       if(req.params.id)
         res.json(await db.findCustomers(req.params.id));
