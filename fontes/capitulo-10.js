@@ -1,6 +1,7 @@
 //10.1
 npm i express mongodb dotenv-safe morgan
 npm i -D jest supertest
+npx create-jest
 
 //10.2
 //database.js

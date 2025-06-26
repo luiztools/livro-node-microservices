@@ -1,22 +1,22 @@
 //11.1
 {
     "name": "cinema-catalog-service",
-        "version": "1.0.0",
-            "description": "",
-                "main": "index.js",
-                    "scripts": {
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
         "start": "node ./src/index",
-            "test": "jest"
+        "test": "jest"
     },
     "keywords": [],
-        "author": "",
-            "license": "ISC"
+    "author": "LuizTools",
+    "license": "MIT"
 }
 
 //11.2
 npm i express morgan mongodb dotenv-safe
 npm i -D supertest jest
-jest --init
+npx create-jest
 
 //11.3
 ./mongod --dbpath/pasta-do-seu-microservice/data --port 27018

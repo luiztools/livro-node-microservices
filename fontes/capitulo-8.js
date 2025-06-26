@@ -1,5 +1,3 @@
-const tape = require("tape");
-
 //8.1
 function aplicarDescontoTest(){
     return aplicarDesconto(10,2) === 8;
@@ -43,34 +41,35 @@ function aplicarDescontoTest(){
       "test": "jest"
     },
     "author": "LuizTools",
-    "license": "ISC"
-  }
+    "license": "MIT"
+}
 
-  //8.8
-  npm test
+//8.8
+npm test
 
-  //8.9
-  npm install --save-dev jest
+//8.9
+npm install --save-dev jest
 
-  //8.10
-  jets --init
+//8.10
+npx create-jest
 
 //8.11
-test('Aplicar desconto', (t) => {
-    t.assert(index.aplicarDesconto(10,5) === 5, "Descontou corretamente");
-    t.end();
+const index = require('./index')
+test('Aplicar desconto', () => {
+    const result = index.aplicarDesconto(10,5);
+    expect(result).toEqual(5);
 })
 
 //8.12
 function aplicarDesconto(valor, desconto){
     if(desconto > valor) return 0;
     return valor - desconto;
- }
+}
  
- module.exports = {aplicarDesconto}
+module.exports = { aplicarDesconto }
 
  //8.13
- test('Aplicar desconto grande', () => {
+test('Aplicar desconto grande', () => {
     const result = index.aplicarDesconto(5,10);
     expect(result).toEqual(0);
 })
